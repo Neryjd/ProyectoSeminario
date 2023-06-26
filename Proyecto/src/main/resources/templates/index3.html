@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>VisitasClientes</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container mt-4">
+	<a th:href="@{/newc}"class="btn btn-success">Agregar Nuevo</a> 
+		<table class="table">
+			<thead style="background-color: #5BA5EA">
+				<thead>
+					<tr>
+						<th>NÚMERO DE VISITA</th>
+					    <th>CODIGO DE CLIENTE</th>
+					    <th>CODIGO DE EMPLEADO</th>
+					    <th>FECHA DE VISITA</th>
+					    <th>ESTADO DE VISITA</th>
+					    <th>DEPARTAMENTO DE VISITA</th>
+					    <th>ZONA DE VIVIENDA</th>
+					    <th>LATITUD DE COORDENADAS</th>
+					    <th>LONGITUD DE COORDENADAS</th>
+					    <th>TIPO DE SERRVICIO</th>
+						<th>ACCIONES</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr th:each="v:${VisitasCliente}">
+					<td th:text="${v.id}"</td>
+					<td th:text="${v.id_cliente}"</td>
+					<td th:text="${v.id_empleado}"</td>
+					<td th:text="${v.Fecha_visita}"</td>
+					<td th:text="${v.Estado_visita}"</td>
+					<td th:text="${v.Departamento}"</td>
+					<td th:text="${v.Zona_visita}"</td>
+					<td th:text="${v.Latitud}"</td>
+					<td th:text="${v.Longitud}"</td>
+					<td th:text="${v.Tipo_Servicio}"</td>
+					
+				
+					<td>
+					<a th:href="@{/listarc/}+${v.id}" class="btn btn-warning">editar</a>
+					<a th:onclick="eliminarc([[${v.id}]])" class="btn btn-danger">delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="/funciones2.js"></script>
+</body>
+</html>
